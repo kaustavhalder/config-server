@@ -3,8 +3,9 @@ const dotenv = require("dotenv");
 const { transports } = require("winston");
 
 dotenv.config({
-  path: "../config/local/.env",
+  path: './config/local/.env'
 });
+
 
 const logOptions = {
   file: {
