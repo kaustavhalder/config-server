@@ -24,7 +24,9 @@ const authRouter = require("./routes/authRouter");
 mongoose.connect(DB_URL);
 
 
-mongoose.connection.on('error', (err) => {
+mongoose.connection.on('connected' , () => {
+    logger.info ("connection Successfull")
+}).on('error', (err) => {
     logger.info(`Error occured on connection to DB ${err}`)
 })
 
