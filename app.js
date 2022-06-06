@@ -23,24 +23,42 @@ const authRouter = require("./routes/authRouter");
 // mongoose.set('useUnifiedTopology', true);
 mongoose.connect(DB_URL);
 
-mongoose.connection
-  .on("error", (err) => {
-    logger.error("");
-  })
-  .on("connected", () => {});
 
-app.get("/", (req, res) => {
-  console.log("Root endpoint has been hit");
-  res.send("Its Alive");
-});
+mongoose.connection.on('error', (err) => {
+    logger.info(`Error occured on connection to DB ${err}`)
+})
 
-// Custom Middleware Functions
-app.use("/health", healthRoute);
-app.use("/auth", authRouter);
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
-console.log(`ENV VARS ${process.env.LOG_LEVEL}`);
 
-app.listen(port, () => {
-  console.log(`Server is up and running on port ${port}`);
-  logger.info("Server is up");
-});
+
+
+
+app.listen(port, ()=>{
+    console.log("Server is up and running`");
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

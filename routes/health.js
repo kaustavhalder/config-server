@@ -1,10 +1,8 @@
 const express = require("express");
 const logger = require('../util/logger')
 const router = express.Router();
+const healthController = require('../controller/healthController')
 
-router.route("/").all((req, res) => {
-  logger.info("Health route has been hit")
-  res.json({ status: "UP" });
-});
+router.route("/").all(healthController.getHealthRoute);
 
 module.exports = router;
