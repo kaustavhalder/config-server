@@ -1,9 +1,8 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-router.route('/').post( (req, res) => {
-    console.log("Config Refresh Endpoint has been hit")
-})
+router.route("/").post((req, res) => {
+  console.log("Config Refresh Endpoint has been hit");
+});
 
-
-moduele.exports = router
+moduele.exports = router;
