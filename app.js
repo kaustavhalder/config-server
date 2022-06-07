@@ -1,5 +1,5 @@
 const express = require("express");
-const body_parser = require('body-parser')
+const bodyparser = require('body-parser')
 
 const mongoose = require("mongoose");
 
@@ -23,8 +23,8 @@ const authRouter = require("./routes/authRouter");
 // mongoose.set('useNewUrlParser', true);
 // mongoose.set('useUnifiedTopology', true);
 
-app.use(body_parser.json())
-app.use(body_parser.urlencoded({extended: false}))
+app.use(bodyparser.json())
+app.use(bodyparser.urlencoded({extended: false}))
 mongoose.connect(DB_URL);
 
 
