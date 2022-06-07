@@ -10,7 +10,7 @@ dotenv.config({
 const logOptions = {
   file: {
     level: "info",
-    filename: "../logs/app.log",
+    filename: `../logs/app.log`,
     handleExceptions: true,
     json: true,
     maxsize: 5242880,
