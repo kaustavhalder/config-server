@@ -1,4 +1,5 @@
 const express = require("express");
+const body_parser = require('body-parser')
 
 const mongoose = require("mongoose");
 
@@ -21,6 +22,9 @@ const authRouter = require("./routes/authRouter");
 // mongoose.set('useCreateIndex', true);
 // mongoose.set('useNewUrlParser', true);
 // mongoose.set('useUnifiedTopology', true);
+
+app.use(body_parser.json())
+app.use(body_parser.urlencoded({extended: false}))
 mongoose.connect(DB_URL);
 
 
@@ -40,27 +44,5 @@ app.use(express.urlencoded({extended: true}))
 app.listen(port, ()=>{
     console.log("Server is up and running`");
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
