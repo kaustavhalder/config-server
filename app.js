@@ -9,6 +9,9 @@ const port = process.env.PORT || 3000;
 // Custom module imports
 
 const logger = require("./util/logger");
+const config = require('./util/loadConfig')
+
+
 
 const DB_URL = process.env.DB_URL;
 console.log(`DB URL ${DB_URL}`);
@@ -49,10 +52,6 @@ app.get("/", (req, res) => {
   });
 });
 
-process.on('uncaughtException', () => {
-    logger.error("Uncaught exception error")
-    process.exit()
-})
 app.listen(port, () => {
   console.log(`Server is up and running on port ${port}`);
 });

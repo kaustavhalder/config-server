@@ -1,11 +1,12 @@
 const winston = require("winston");
-const dotenv = require("dotenv");
+// const dotenv = require("dotenv");
 const { transports } = require("winston");
 
-dotenv.config({
-  path: './config/local/.env'
-});
+// dotenv.config({
+//   path: './config/local/.env'
+// });
 
+console.log(`LOG_LEVEL from logger = ${process.env.LOG_LEVEL}`);
 
 const logOptions = {
   file: {
