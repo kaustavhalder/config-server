@@ -49,6 +49,10 @@ app.get("/", (req, res) => {
   });
 });
 
+process.on('uncaughtException', () => {
+    logger.error("Uncaught exception error")
+    process.exit()
+})
 app.listen(port, () => {
   console.log(`Server is up and running on port ${port}`);
 });
