@@ -13,12 +13,12 @@ const logger = require("./util/logger");
 
 
 const DB_URL = process.env.DB_URL;
-console.log(`DB URL ${DB_URL}`);
-
+logger.info(`DB URL for env ${DB_URL}`)
 // Custom endpoints
 
 const healthRouter = require("./routes/health");
 const authRouter = require("./routes/authRouter");
+const { loggers } = require("winston");
 
 // mongoose.set('useFindAndModify', false);
 // mongoose.set('useCreateIndex', true);
