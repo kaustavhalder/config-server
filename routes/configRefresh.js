@@ -8,7 +8,8 @@ router.route("/").post((req, res) => {
     logger.info("Config refresh endpoint has been hit")
 });
 
-function getConfig = async (req, res ) => {
-    logger.info("Asynch fucntion for get config called")
+
+async function getConfig(req, res ) {
+    logger.info("getConfig function has been called")
 }
-moduele.exports = router;
+module.exports = router;
