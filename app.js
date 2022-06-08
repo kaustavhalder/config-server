@@ -7,9 +7,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Custom module imports
-
-const logger = require("./util/logger");
 const config = require('./util/loadConfig')
+const logger = require("./util/logger");
 
 
 
