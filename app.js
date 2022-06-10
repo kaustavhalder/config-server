@@ -18,6 +18,7 @@ logger.info(`DB URL for env ${DB_URL}`)
 
 const healthRouter = require("./routes/health");
 const authRouter = require("./routes/authRouter");
+const configRefeshRouter = require('./routes/configRefresh')
 const { loggers } = require("winston");
 
 // mongoose.set('useFindAndModify', false);
@@ -41,6 +42,7 @@ mongoose.connection
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/health", healthRouter);
+app.use('/configrefresh', configRefeshRouter)
 
 app.get("/", (req, res) => {
   //   console.log("Its Alive");
