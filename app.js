@@ -41,6 +41,7 @@ mongoose.connection
 // Custom Middlewares loaded
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Routing Middle wares loaded
 app.use("/health", healthRouter);
 app.use('/configrefresh', configRefeshRouter)
 

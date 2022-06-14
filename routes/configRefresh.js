@@ -13,4 +13,7 @@ async function getConfig(req, res ) {
     logger.info("getConfig function has been called")
 }
 console.log("module has been called")
+
+
+
 module.exports = router;
