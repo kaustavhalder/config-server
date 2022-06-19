@@ -10,7 +10,7 @@ if (!DB_URL) {
 
     mongoose.connection.on('connected', () => {
         logger.info("DB Connection succesfull")
-    }).model('error', () => {
+    }).on('error', () => {
         logger.error("DB Connection not succesfull")
         process.exit()
     })
