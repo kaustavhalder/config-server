@@ -28,7 +28,10 @@ const { loggers } = require("winston");
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
-mongoose.connect(DB_URL);
+
+
+//Establish Database connection to the Cloud URI 
+mongoose.connect(DB_URL)
 
 mongoose.connection
   .on("connected", () => {
