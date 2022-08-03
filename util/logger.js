@@ -2,13 +2,12 @@ const winston = require("winston");
 // const dotenv = require("dotenv");
 const { transports } = require("winston");
 
-
 console.log(`LOG_LEVEL from logger = ${process.env.LOG_LEVEL}`);
 
 const logOptions = {
   file: {
     level: "info",
-    filename: `../logs/app.log`,
+    filename: "./logs/app.log",
     handleExceptions: true,
     json: true,
     maxsize: 5242880,
