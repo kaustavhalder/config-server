@@ -10,3 +10,7 @@ const payloadSchema = new mongoose.Schema({
     required: [true, "GitHub URI must be provided for API to work "],
   },
 });
+
+const payloadModel = new mongoose.Model("payload", payloadSchema);
+
+module.exports = payloadModel;
