@@ -7,18 +7,16 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Custom module imports
-const config = require('./util/loadConfig')
+const config = require("./util/loadConfig");
 const logger = require("./util/logger");
 
-
-
 const DB_URL = process.env.DB_URL;
-logger.info(`DB URL for env ${DB_URL}`)
+logger.info(`DB URL for env ${DB_URL}`);
 // Custom endpoints
 
 const healthRouter = require("./routes/health");
 const authRouter = require("./routes/authRouter");
-const configRefeshRouter = require('./routes/configRefresh')
+const configRefeshRouter = require("./routes/configRefresh");
 const { loggers } = require("winston");
 
 // mongoose.set('useFindAndModify', false);
@@ -29,9 +27,8 @@ const { loggers } = require("winston");
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 
-
-//Establish Database connection to the Cloud URI 
-mongoose.connect(DB_URL)
+//Establish Database connection to the Cloud URI
+mongoose.connect(DB_URL);
 
 mongoose.connection
   .on("connected", () => {
@@ -44,9 +41,10 @@ mongoose.connection
 // Custom Middlewares loaded
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 // Routing Middle wares loaded
 app.use("/health", healthRouter);
-app.use('/configrefresh', configRefeshRouter)
+app.use("/configrefresh", configRefeshRouter);
 
 app.get("/", (req, res) => {
   //   console.log("Its Alive");
