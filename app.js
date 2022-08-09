@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000;
 // Custom module imports
 const config = require("./util/loadConfig");
 const logger = require("./util/logger");
+const dbconnect = require("./util/dbConnect");
 
 const DB_URL = process.env.DB_URL;
 logger.info(`DB URL for env ${DB_URL}`);
@@ -29,15 +30,15 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 
 //Establish Database connection to the Cloud URI
-mongoose.connect(DB_URL);
+// mongoose.connect(DB_URL);
 
-mongoose.connection
-  .on("connected", () => {
-    logger.info("connection Successfull");
-  })
-  .on("error", (err) => {
-    logger.info(`Error occured on connection to DB ${err}`);
-  });
+// mongoose.connection
+//   .on("connected", () => {
+//     logger.info("connection Successfull");
+//   })
+//   .on("error", (err) => {
+//     logger.info(`Error occured on connection to DB ${err}`);
+//   });
 
 // Custom Middlewares loaded
 app.use(express.json());
