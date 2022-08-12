@@ -3,16 +3,12 @@ const logger = require("../util/logger");
 
 exports.createUser = async (req, res) => {
   //   console.log("Create User controller has been hit");
-  logger.info("User Creation controller has been hite");
+  logger.info("User Creation controller has been hit");
   console.log(req.body);
 
   let userName = req.body.name;
   let userEmail = req.body.email;
   let userPassword = req.body.password;
-
-  // console.log(userName);
-  // console.log(userEmail);
-  // console.log(userPassword);
 
   try {
     const newUser = await userModel.create({
@@ -38,14 +34,14 @@ exports.createUser = async (req, res) => {
   }
 };
 
-exports.deleteUser = async (req, res) => {
-  logger.info("delete user route has been hit");
-};
-
-exports.updateUser = async (req, res) => {
-  logger.info("update user route has been hit");
-};
-
 exports.getAllUsers = async (req, res) => {
   logger.info("Get All users route has been hit");
+  let users = await userModel.find({});
+  res.status(200).json({
+    success: true,
+    message: "ok",
+    data: {
+      users,
+    },
+  });
 };

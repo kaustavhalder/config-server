@@ -19,7 +19,7 @@ const healthRouter = require("./routes/health");
 const authRouter = require("./routes/authRouter");
 const configRefeshRouter = require("./routes/configRefresh");
 const userRouter = require("./routes/userRoute");
-const { loggers } = require("winston");
+// const { loggers } = require("winston");
 
 // mongoose.set('useFindAndModify', false);
 // mongoose.set('useCreateIndex', true);
@@ -47,7 +47,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routing Middle wares loaded
 app.use("/health", healthRouter);
 app.use("/configrefresh", configRefeshRouter);
-app.use("/user", userRouter);
+app.use("/api/v1/user", userRouter);
 // app.use("/login");
 // app.use("/signup");
 
