@@ -6,7 +6,7 @@
 
 ## Local Development
 
-    * Clone the repo
-    * Install dependencies with `npm install`
-    * Run `npm run start`
-    * Location [server.js](./server.js)
+     Clone the repo
+     Install dependencies with `npm install`
+     Run `npm run start`
+     Location [server.js](./server.js)
