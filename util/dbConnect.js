@@ -10,7 +10,6 @@ if (!DB_URL) {
 
   mongoose.connection
     .on("connected", () => {
-      console.log("From DB connect fiie");
       logger.info("DB Connection succesfull");
     })
     .on("error", () => {
