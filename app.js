@@ -13,18 +13,12 @@ const dbconnect = require("./util/dbConnect");
 
 const DB_URL = process.env.DB_URL;
 logger.info(`DB URL for env ${DB_URL}`);
-// Custom endpoints
 
+// Custom endpoints
 const healthRouter = require("./routes/health");
 const authRouter = require("./routes/authRouter");
 const configRefeshRouter = require("./routes/configRefresh");
 const userRouter = require("./routes/userRoute");
-// const { loggers } = require("winston");
-
-// mongoose.set('useFindAndModify', false);
-// mongoose.set('useCreateIndex', true);
-// mongoose.set('useNewUrlParser', true);
-// mongoose.set('useUnifiedTopology', true);
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
