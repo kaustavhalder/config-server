@@ -1,29 +1,27 @@
-const express = require("express");
-const bodyparser = require("body-parser");
-
-const mongoose = require("mongoose");
+const express = require('express');
+const bodyparser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Custom module imports
-const config = require("./util/loadConfig");
-const logger = require("./util/logger");
-const dbconnect = require("./util/dbConnect");
+const config = require('./util/loadConfig');
+const logger = require('./util/logger');
+const dbconnect = require('./util/dbConnect');
 
-const DB_URL = process.env.DB_URL;
+const { DB_URL } = process.env;
 logger.info(`DB URL for env ${DB_URL}`);
 
 // Custom endpoints
-const healthRouter = require("./routes/health");
-const authRouter = require("./routes/authRouter");
-const configRefeshRouter = require("./routes/configRefresh");
-const userRouter = require("./routes/userRoute");
+const healthRouter = require('./routes/health');
+const authRouter = require('./routes/authRouter');
+const configRefeshRouter = require('./routes/configRefresh');
+const userRouter = require('./routes/userRoute');
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 
-//Establish Database connection to the Cloud URI
+// Establish Database connection to the Cloud URI
 // mongoose.connect(DB_URL);
 
 // mongoose.connection
@@ -39,17 +37,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routing Middle wares loaded
-app.use("/health", healthRouter);
-app.use("/configrefresh", configRefeshRouter);
-app.use("/api/v1/user", userRouter);
+app.use('/health', healthRouter);
+app.use('/configrefresh', configRefeshRouter);
+app.use('/api/v1/user', userRouter);
 // app.use("/login");
 // app.use("/signup");
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   //   console.log("Its Alive");
-  logger.info("root url has been hit");
+  logger.info('root url has been hit');
   res.status(200).json({
-    status: "success",
+    status: 'success',
     message: "It's Alive !! ",
   });
 });
