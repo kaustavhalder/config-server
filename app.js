@@ -39,9 +39,10 @@ app.use(express.urlencoded({ extended: true }));
 // Routing Middle wares loaded
 app.use('/health', healthRouter);
 app.use('/configrefresh', configRefeshRouter);
+app.use('/api/v1/roles', userRouter);
 app.use('/api/v1/user', userRouter);
-// app.use("/login");
-// app.use("/signup");
+app.use('/api/v1/configrefresh', userRouter);
+app.use('/api/v1/passencrypt', userRouter);
 
 app.get('/', (req, res) => {
   //   console.log("Its Alive");
